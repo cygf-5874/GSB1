@@ -1,0 +1,17 @@
+{
+  "name": "pixel-battlegrounds",
+  "version": "1.0.0",
+  "description": "像素风浏览器吃鸡小游戏 - 单文件 Canvas，无需依赖，打开即玩",
+  "main": "index.html",
+  "scripts": {
+    "start": ""
+  },
+  "keywords": [
+    "game",
+    "canvas",
+    "battle-royale",
+    "pixel"
+  ],
+  "license": "MIT",
+  "author": ""
+}

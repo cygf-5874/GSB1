@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>像素大逃杀 · Pixel Royale</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="game-frame">
+  <div id="top-bar">
+    <div class="stat-group">
+      <div class="stat" title="生命值">
+        <span class="icon icon-hp"></span>
+        <div class="bar-wrap"><div id="hp-bar" class="bar hp"></div></div>
+        <span id="hp-text" class="stat-text">100</span>
+      </div>
+      <div class="stat" title="护甲值">
+        <span class="icon icon-armor"></span>
+        <div class="bar-wrap"><div id="armor-bar" class="bar armor"></div></div>
+        <span id="armor-text" class="stat-text">0</span>
+      </div>
+    </div>
+    <div class="center-info">
+      <div id="phase-text" class="phase-text">等待跳伞</div>
+      <div id="zone-timer" class="zone-timer">--:--</div>
+    </div>
+    <div class="stat-group right">
+      <div class="stat-pill" title="剩余人数">剩余 <b id="alive-count">20</b></div>
+      <div class="stat-pill" title="击杀数">击杀 <b id="kill-count">0</b></div>
+      <div class="stat-pill" id="zone-state" title="安全区状态">安全区</div>
+    </div>
+  </div>
+
+  <div id="stage">
+    <canvas id="game" width="1024" height="640"></canvas>
+
+    <button id="jump-btn" class="pixel-btn hidden">跳伞 (空格)</button>
+
+    <div id="kill-feed"></div>
+
+    <div id="status-banner"></div>
+
+    <div id="start-screen" class="overlay">
+      <div class="panel">
+        <h1 class="title">像素大逃杀</h1>
+        <p class="subtitle">PIXEL ROYALE · 20 人空降，一人胜出</p>
+        <div class="controls">
+          <h2>操作说明</h2>
+          <div class="ctrl-grid">
+            <span><b>W A S D / 方向键</b> 移动</span>
+            <span><b>空格</b> 跳伞 / 跳跃</span>
+            <span><b>鼠标</b> 瞄准</span>
+            <span><b>J / 左键</b> 射击</span>
+            <span><b>K / R</b> 换弹</span>
+            <span><b>H</b> 使用药品</span>
+            <span><b>L</b> 背包</span>
+            <span><b>U</b> 大地图</span>
+            <span><b>1-4 / 滚轮</b> 切换武器</span>
+            <span><b>M</b> 静音</span>
+          </div>
+        </div>
+        <button id="start-btn" class="pixel-btn big">开局</button>
+      </div>
+    </div>
+
+    <div id="end-screen" class="overlay hidden">
+      <div class="panel">
+        <h1 id="end-title" class="title"></h1>
+        <p id="end-stats" class="subtitle"></p>
+        <button id="restart-btn" class="pixel-btn big">再来一局</button>
+      </div>
+    </div>
+
+    <div id="map-screen" class="overlay hidden">
+      <canvas id="map-canvas" width="420" height="420"></canvas>
+      <p class="hint">按 U / Esc 关闭地图</p>
+    </div>
+
+    <div id="bag-screen" class="overlay hidden">
+      <div class="panel bag-panel">
+        <h2>背包</h2>
+        <div id="bag-list"></div>
+        <p class="hint">按 L / Esc 关闭</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="hotbar"></div>
+  <div id="bottom-hint">在圈外会持续掉血 · 靠近发光物资自动拾取 · 按 <b>M</b> 静音 · <span id="mute-state">音效：开</span></div>
+</div>
+<script src="game.js"></script>
+</body>
+</html>
